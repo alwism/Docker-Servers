@@ -10,14 +10,12 @@ RUN set -x \
     ca-certificates \
     libsdl2-2.0-0 \
     curl \
+    language-pack-en_US \
+    language-pack-en_US.UTF-8 \
   ; \
   apt-get clean autoclean; \
   apt-get -y autoremove; \
   rm -rf /var/lib/apt/lists/*
-
-RUN locale-gen en_US; \
-    locale-gen en_US.UTF-8; \
-    update-locale
 
 WORKDIR ~/Steam
 
