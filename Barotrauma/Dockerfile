@@ -1,4 +1,4 @@
-FROM debian
+FROM ubuntu
 
 RUN mkdir -p /root/Steam/logs; \
     ln -s /dev/stderr /root/Steam/logs/stderr.txt
