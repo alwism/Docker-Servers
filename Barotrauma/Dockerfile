@@ -7,7 +7,6 @@ RUN set -x \
   apt-get -y upgrade; \
   apt-get -y install \
     lib32gcc1 \
-    steamcmd \
   ; \
   apt-get clean autoclean; \
   apt-get -y autoremove; \
@@ -15,7 +14,9 @@ RUN set -x \
 
 WORKDIR ~/Steam
 
-RUN ln -s /usr/games/steamcmd steamcmd
+RUN git clone https://aur.archlinux.org/steamcmd.git
+
+WORKDIR ~/Steam/steamcmd
 
 #RUN steamcmd +login anonymous +app_update 602960 validate +quit
 
