@@ -1,15 +1,18 @@
 FROM ubuntu
 
 RUN set -x \
-  add-apt-repository multiverse; \
   dpkg --add-architecture i386; \
   apt-get update; \
   apt-get -y upgrade; \
   apt-get -y install \
     git \
     lib32gcc1 \
+    lib32stdc++6 \
+    ca-certificates \
+    libsdl2-2.0-0 \
     curl \
     tar \
+    language-pack-en \
   ; \
   apt-get clean autoclean; \
   apt-get -y autoremove; \
