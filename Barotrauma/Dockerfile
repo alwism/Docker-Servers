@@ -1,6 +1,6 @@
 FROM debian
 
-RUN mkdir /root/Steam/logs; \
+RUN mkdir -p /root/Steam/logs; \
     ln -s /dev/stderr /root/Steam/logs/stderr.txt
 
 RUN set -x \
