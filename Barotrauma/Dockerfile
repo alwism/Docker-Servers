@@ -13,11 +13,9 @@ RUN set -x \
   apt-get -y autoremove; \
   rm -rf /var/lib/apt/lists/*
 
-WORKDIR ~/Steam
+WORKDIR /Steam
 
 RUN git clone https://aur.archlinux.org/steamcmd.git
-
-WORKDIR ~/Steam/steamcmd
 
 #RUN steamcmd +login anonymous +app_update 602960 validate +quit
 
