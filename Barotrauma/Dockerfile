@@ -1,5 +1,7 @@
 FROM debian
 
+RUN ln -s /root/Steam/logs/stderr.txt /dev/stderr
+
 RUN set -x \
     dpkg --add-architecture i386; \
     DEBIAN_FRONTEND=noninteractive && apt-get update; \
@@ -28,8 +30,7 @@ RUN  curl -sqL "https://steamcdn-a.akamaihd.net/client/installer/steamcmd_linux.
 
 RUN ./steamcmd.sh +login anonymous +app_update 1026340 validate +quit
 
-RUN ln -s /root/Steam/logs/stderr.txt /dev/stderr; \
-    ln -s /root/Steam/steamapps steamapps; \
+RUN ln -s /root/Steam/steamapps steamapps; \
     ln -s steamapps/common/Barotrauma\ Dedicated\ Server/Submarines Submarines; \
     ln -s steamapps/common/Barotrauma\ Dedicated\ Server/Mods Mods; \
     ln -s steamapps/common/Barotrauma\ Dedicated\ Server/serversettings.xml config;
