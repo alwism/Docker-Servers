@@ -8,11 +8,14 @@ RUN set -x \
     DEBIAN_FRONTEND=noninteractive && apt-get update; \
     apt-get -y upgrade; \
     DEBIAN_FRONTEND=noninteractive && apt-get -y install \
-        bzip2 libarchive13 locales \
+        bzip2 \
+        libarchive13 \
+        locales \
         lib32gcc1 \
         lib32stdc++6 \
         ca-certificates \
         libsdl2-2.0-0 \
+        icu-devtools \
         curl \
         tar \
     ; \
