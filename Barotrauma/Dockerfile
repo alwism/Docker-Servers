@@ -1,4 +1,4 @@
-FROM ubuntu
+FROM debian
 
 RUN mkdir -p /root/Steam/logs; \
     ln -s /dev/stderr /root/Steam/logs/stderr.txt
@@ -13,7 +13,6 @@ RUN set -x \
         lib32stdc++6 \
         ca-certificates \
         libsdl2-2.0-0 \
-        libcurl4-gnutls-dev \
         curl \
         tar \
     ; \
