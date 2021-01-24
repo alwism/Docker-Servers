@@ -6,9 +6,10 @@ services:
     container_name: Barotrauma
     environment:
       BAR_SETTING_public: '"True"'
-      BAR_SETTING_name: '${NAME}'
-      BAR_SETTING_port: '"${PORT}"'
-      BAR_SETTING_port: '"${QUERYPORT}"'
+      BAR_SETTING_name: '${BAR_SETTING_NAME}'
+      BAR_SETTING_password: '"${BAR_SETTING_PASSWORD}"'
+      BAR_SETTING_port: '"${BAR_SETTING_PORT}"'
+      BAR_SETTING_port: '"${BAR_SETTING_QUERYPORT}"'
     volumes:
       - "./barotrauma/subs:/Submarines"
       - "./barotrauma/mods:/Mods"
