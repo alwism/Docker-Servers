@@ -24,9 +24,9 @@ RUN locale-gen en_US.utf8
 
 RUN  curl -sqL "https://steamcdn-a.akamaihd.net/client/installer/steamcmd_linux.tar.gz" | tar zxvf -;
 
-RUN steamcmd +login anonymous +app_update 602960 validate +quit
+RUN ./steamcmd.sh +login anonymous +app_update 602960 validate +quit
 
-RUN steamcmd +login anonymous +app_update 1026340 validate +quit
+RUN ./steamcmd.sh +login anonymous +app_update 1026340 validate +quit
 
-#CMD steamcmd +login anonymous +app_run 1026340
+#CMD ./steamcmd.sh +login anonymous +app_run 1026340
 CMD tail -f /dev/null
