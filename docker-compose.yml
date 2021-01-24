@@ -1,0 +1,7 @@
+version: '3.9'
+
+services:
+  barotrauma:
+    build: ./Barotrauma
+    container_name: Barotrauma
+    name: Barotrauma
