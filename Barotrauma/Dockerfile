@@ -13,7 +13,7 @@ RUN set -x \
         lib32stdc++6 \
         ca-certificates \
         libsdl2-2.0-0 \
-        libcurl \
+        libcurl4 \
         curl \
         tar \
     ; \
