@@ -2,7 +2,7 @@ FROM ubuntu
 
 RUN apt-get update
 RUN apt-get -y upgrade
-RUN apt-get install lib32gcc1 curl
+RUN apt-get -y install lib32gcc1 curl
 
 WORKDIR ~/Steam 
 
