@@ -1,6 +1,7 @@
 FROM debian
 
-RUN ln -s /dev/stderr /root/Steam/logs/stderr.txt
+RUN mkdir /root/Steam/logs; \
+    ln -s /dev/stderr /root/Steam/logs/stderr.txt
 
 RUN set -x \
     dpkg --add-architecture i386; \
