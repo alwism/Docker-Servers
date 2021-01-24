@@ -4,3 +4,19 @@ services:
   barotrauma:
     build: ./Barotrauma
     container_name: Barotrauma
+    environment:
+      BAR_SETTING_public: '"True"'
+      BAR_SETTING_name: '${NAME}'
+      BAR_SETTING_port: '"${PORT}"'
+      BAR_SETTING_port: '"${QUERYPORT}"'
+    volumes:
+      - "./barotrauma/subs:/Submarines"
+      - "./barotrauma/mods:/Mods"
+      - "./barotrauma/saves:/Saves"
+    ports:
+      - target: ${PORT}
+        published: ${PORT}
+        protocol: udp
+      - target: ${QUERYPORT}
+        published: ${QUERYPORT}
+        protocol: udp
