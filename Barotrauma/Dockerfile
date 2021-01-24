@@ -12,6 +12,7 @@ RUN set -x \
     libsdl2-2.0-0 \
     curl \
     tar \
+    locales \
   ; \
   apt-get clean autoclean; \
   apt-get -y autoremove; \
@@ -19,7 +20,7 @@ RUN set -x \
 
 WORKDIR /Steam
 
-RUN lang-gen en_US.utf8
+RUN locale-gen en_US.utf8
 
 RUN  curl -sqL "https://steamcdn-a.akamaihd.net/client/installer/steamcmd_linux.tar.gz" | tar zxvf -;
 
