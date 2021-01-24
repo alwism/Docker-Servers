@@ -8,6 +8,8 @@ RUN set -x \
   apt-get -y install \
     git \
     lib32gcc1 \
+    curl \
+    tar \
   ; \
   apt-get clean autoclean; \
   apt-get -y autoremove; \
@@ -15,7 +17,7 @@ RUN set -x \
 
 WORKDIR /Steam
 
-RUN git clone https://aur.archlinux.org/steamcmd.git
+RUN curl -sqL "https://steamcdn-a.akamaihd.net/client/installer/steamcmd_linux.tar.gz" | tar zxvf -
 
 #RUN steamcmd +login anonymous +app_update 602960 validate +quit
 
