@@ -20,7 +20,7 @@ RUN set -x \
 
 WORKDIR /Steam
 
-RUN curl -sqL "https://steamcdn-a.akamaihd.net/client/installer/steamcmd_linux.tar.gz" | tar zxvf -
+RUN curl -sqL "https://steamcdn-a.akamaihd.net/client/installer/steamcmd_linux.tar.gz" | tar zxvf -;
 
 RUN steamcmd +login anonymous +app_update 602960 validate +quit
 
