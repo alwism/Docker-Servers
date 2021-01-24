@@ -16,11 +16,13 @@ RUN set -x \
     ; \
     apt-get clean autoclean; \
     apt-get -y autoremove; \
-    rm -rf /var/lib/apt/lists/*; \
-    echo "en_US.UTF-8 UTF-8" >> /etc/locale.gen \
-    locale-gen; \
-    update-locale
+    rm -rf /var/lib/apt/lists/*
 
+RUN locale-gen "en_US.UTF-8"
+ENV LANG=en_US.UTF-8 \
+    LANGUAGE=en_US:en \
+    LC_ALL=en_US.UTF-8
+    
 WORKDIR /Steam
 
 RUN  curl -sqL "https://steamcdn-a.akamaihd.net/client/installer/steamcmd_linux.tar.gz" | tar zxvf -;
