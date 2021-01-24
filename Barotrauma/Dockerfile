@@ -15,12 +15,18 @@ RUN set -x \
   apt-get -y autoremove; \
   rm -rf /var/lib/apt/lists/*
 
+RUN locale-gen en_US; \
+    locale-gen en_US.UTF-8; \
+    update-locale
+
 WORKDIR ~/Steam
 
 RUN curl -sqL "https://steamcdn-a.akamaihd.net/client/installer/steamcmd_linux.tar.gz" | tar zxf -
+
 RUN ./steamcmd.sh +login anonymous +app_update 602960 validate +quit
 
-RUN ln -s ~/Steam/linux64/steamclient.so ~/Steam/steamapps/common/Barotrauma\ Dedicated\ Server/lib64/steamclient.so
+RUN ln -s ~/Steam/linux64/steamclient.so ~/Steam/steamapps/common/Barotrauma\ Dedicated\ Server/lib64/steamclient.so; \
+    ln -s /root/Steam/logs/stderr.txt /dev/stderr
 
 RUN ./steamcmd.sh +login anonymous +app_update 1026340 validate +quit
 
