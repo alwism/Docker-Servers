@@ -28,6 +28,9 @@ RUN  curl -sqL "https://steamcdn-a.akamaihd.net/client/installer/steamcmd_linux.
 
 RUN ./steamcmd.sh +login anonymous +app_update 1026340 validate +quit
 
+RUN ln -s /root/Steam/steamapps steamapps; \
+    ln -s steamapps/common/Barotrauma\ Dedicated\ Server/serversettings.xml config;
+
 COPY ./entry.sh entry.sh
 
 RUN chmod +x entry.sh
