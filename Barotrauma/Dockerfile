@@ -10,8 +10,7 @@ RUN set -x \
     ca-certificates \
     libsdl2-2.0-0 \
     curl \
-    language-pack-en_US \
-    language-pack-en_US.UTF-8 \
+    language-pack-en \
   ; \
   apt-get clean autoclean; \
   apt-get -y autoremove; \
