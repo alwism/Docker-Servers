@@ -6,6 +6,7 @@ RUN set -x \
   apt-get update; \
   apt-get -y upgrade; \
   apt-get -y install \
+    git \
     lib32gcc1 \
   ; \
   apt-get clean autoclean; \
