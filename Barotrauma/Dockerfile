@@ -1,10 +1,19 @@
 FROM ubuntu
 
-RUN apt-get update
-RUN apt-get -y upgrade
-RUN apt-get -y install lib32gcc1 curl
-
-USER Steam:Steam
+RUN set -x \
+  dpkg --add-architecture i386; \
+  apt-get update; \
+  apt-get -y upgrade; \
+  apt-get -y install --no-install-recommends --no-install-suggests \
+    lib32gcc1 \
+    lib32stdc++6 \
+    ca-certificates \
+    libsdl2-2.0-0 \
+    curl \
+  ; \
+  apt-get clean autoclean; \
+  apt-get -y autoremove; \
+  rm -rf /var/lib/apt/lists/*
 
 WORKDIR ~/Steam
 
