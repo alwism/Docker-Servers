@@ -5,6 +5,7 @@ RUN set -x \
     apt-get update; \
     apt-get -y upgrade; \
     apt-get -y install \
+        apt-utils \
         lib32gcc1 \
         lib32stdc++6 \
         ca-certificates \
