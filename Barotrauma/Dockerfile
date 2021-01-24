@@ -17,7 +17,7 @@ RUN set -x \
     apt-get clean autoclean; \
     apt-get -y autoremove; \
     rm -rf /var/lib/apt/lists/*; \
-    locale-gen en_US.utf8; \
+    locale-gen en_US.UTF-8; \
     update-locale
 
 WORKDIR /Steam
