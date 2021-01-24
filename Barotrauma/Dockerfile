@@ -4,7 +4,9 @@ RUN apt-get update
 RUN apt-get -y upgrade
 RUN apt-get -y install lib32gcc1 curl
 
-WORKDIR ~/Steam 
+USER Steam:Steam
+
+WORKDIR ~/Steam
 
 RUN curl -sqL "https://steamcdn-a.akamaihd.net/client/installer/steamcmd_linux.tar.gz" | tar zxf -
 RUN ./steamcmd.sh +login anonymous +app_update 602960 validate +quit
