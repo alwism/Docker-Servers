@@ -28,5 +28,10 @@ RUN  curl -sqL "https://steamcdn-a.akamaihd.net/client/installer/steamcmd_linux.
 
 RUN ./steamcmd.sh +login anonymous +app_update 1026340 validate +quit
 
-#CMD ./steamcmd.sh +login anonymous +app_run 1026340
+COPY ./entry.sh entry.sh
+
+RUN chmod +x entry.sh
+
+ENTRYPOINT ./entry.sh
+
 CMD tail -f /dev/null
