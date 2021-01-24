@@ -12,7 +12,6 @@ RUN set -x \
     libsdl2-2.0-0 \
     wget \
     tar \
-    language-pack-en \
   ; \
   apt-get clean autoclean; \
   apt-get -y autoremove; \
@@ -20,7 +19,9 @@ RUN set -x \
 
 WORKDIR /Steam
 
-RUN  wget -qO- 'https://steamcdn-a.akamaihd.net/client/installer/steamcmd_linux.tar.gz' | tar xvzf -;
+RUN lang-gen en_US.utf8
+
+RUN  curl -sqL "https://steamcdn-a.akamaihd.net/client/installer/steamcmd_linux.tar.gz" | tar zxvf -;
 
 RUN steamcmd +login anonymous +app_update 602960 validate +quit
 
