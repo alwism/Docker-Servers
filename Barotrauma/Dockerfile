@@ -10,7 +10,7 @@ RUN set -x \
     lib32stdc++6 \
     ca-certificates \
     libsdl2-2.0-0 \
-    curl \
+    wget \
     tar \
     language-pack-en \
   ; \
@@ -20,7 +20,7 @@ RUN set -x \
 
 WORKDIR /Steam
 
-RUN curl -sqL "https://steamcdn-a.akamaihd.net/client/installer/steamcmd_linux.tar.gz" | tar zxvf -;
+RUN  wget -qO- 'https://steamcdn-a.akamaihd.net/client/installer/steamcmd_linux.tar.gz' | tar xvzf -;
 
 RUN steamcmd +login anonymous +app_update 602960 validate +quit
 
