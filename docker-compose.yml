@@ -15,9 +15,9 @@ services:
       - "./barotrauma/mods:/Mods"
       - "./barotrauma/saves:/Saves"
     ports:
-      - target: ${PORT}
-        published: ${PORT}
+      - target: ${BAR_SETTING_PORT}
+        published: ${BAR_SETTING_PORT}
         protocol: udp
-      - target: ${QUERYPORT}
-        published: ${QUERYPORT}
+      - target: ${BAR_SETTING_QUERYPORT}
+        published: ${BAR_SETTING_QUERYPORT}
         protocol: udp
