@@ -16,7 +16,9 @@ RUN set -x \
     ; \
     apt-get clean autoclean; \
     apt-get -y autoremove; \
-    rm -rf /var/lib/apt/lists/*
+    rm -rf /var/lib/apt/lists/*; \
+    locale-gen; \
+    apt-get -y remove locales
 
 #RUN locale-gen --no-purge en_US.UTF-8; \
     #update-locale LANG=en_US.UTF-8; \
