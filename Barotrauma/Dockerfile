@@ -15,6 +15,8 @@ RUN set -x \
 
 WORKDIR ~/Steam
 
+RUN ln -s /usr/games/steamcmd steamcmd
+
 RUN steamcmd +login anonymous +app_update 602960 validate +quit
 
 RUN steamcmd +login anonymous +app_update 1026340 validate +quit
