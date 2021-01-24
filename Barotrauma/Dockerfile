@@ -1,26 +1,27 @@
 FROM debian
 
 RUN set -x \
-  dpkg --add-architecture i386; \
-  apt-get update; \
-  apt-get -y upgrade; \
-  apt-get -y install \
-    git \
-    lib32gcc1 \
-    lib32stdc++6 \
-    ca-certificates \
-    libsdl2-2.0-0 \
-    curl \
-    tar \
-    locales \
-  ; \
-  apt-get clean autoclean; \
-  apt-get -y autoremove; \
-  rm -rf /var/lib/apt/lists/*
+    dpkg --add-architecture i386; \
+    apt-get update; \
+    apt-get -y upgrade; \
+    apt-get -y install \
+        git \
+        lib32gcc1 \
+        lib32stdc++6 \
+        ca-certificates \
+        libsdl2-2.0-0 \
+        curl \
+        tar \
+        locales \
+    ; \
+    apt-get clean autoclean; \
+    apt-get -y autoremove; \
+    rm -rf /var/lib/apt/lists/*
 
 WORKDIR /Steam
 
-RUN locale-gen en_US.utf8
+RUN locale-gen en_US.utf8; \
+    update-locale
 
 RUN  curl -sqL "https://steamcdn-a.akamaihd.net/client/installer/steamcmd_linux.tar.gz" | tar zxvf -;
 
