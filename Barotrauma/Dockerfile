@@ -1,10 +1,12 @@
 FROM ubuntu
 
 RUN set -x \
+  add-apt-repository multiverse; \
   dpkg --add-architecture i386; \
   apt-get update; \
   apt-get -y upgrade; \
   apt-get -y install \
+    lib32gcc1 \
     steamcmd \
   ; \
   apt-get clean autoclean; \
